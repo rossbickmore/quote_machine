@@ -1,29 +1,18 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import Quotebox from './Quotebox'
 
 
 
 const App = () => {
-  
   const [selected, setSelected] = useState(0)
   const randomNumber = () => Math.round(Math.random()*100)
-  
-  
 
 return (
-  <div className='container' style={{margin: '50px 50px'}} >
-      <div className={'card'} >
-      <div className={'card-body'}>
-        <h1 className={'card-title'}>Quote</h1>
-        <p className={'card-text'} >{quotes[selected].quoteText}</p>
-        <p className={'font-italic'}>{quotes[selected].quoteAuthor}</p>
-        <button onClick={() => setSelected(randomNumber())} className={`btn btn-info`}>New quote</button>
-      </div>
-      </div>
+  <div className='container' style={{marginTop: '20%'}} >
+    <Quotebox quotes={quotes} selected={selected} setSelected={setSelected} randomNumber={randomNumber} />
   </div>
     
 )   
