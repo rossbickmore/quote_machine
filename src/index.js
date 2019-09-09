@@ -3,16 +3,38 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Quotebox from './Quotebox'
+import Rating from './Rating'
 
 
 
 const App = () => {
+  //states
   const [selected, setSelected] = useState(0)
+  const [good, setGood] = useState(0)
+  const [bad, setBad] = useState(0)
+  //functions
   const randomNumber = () => Math.round(Math.random()*100)
+  
+  const addGood = () => {
+    console.log(good)
+    setGood(good + 1)
+  }
+
+  const addBad = () => {
+    console.log(bad)
+    setBad(bad+1)
+  }
+
+  const newQuote = () => {
+    setSelected(randomNumber())
+    setBad(0)
+    setGood(0)
+  }
 
 return (
-  <div className='container' style={{marginTop: '20%'}} >
-    <Quotebox quotes={quotes} selected={selected} setSelected={setSelected} randomNumber={randomNumber} />
+  <div className='flex-container' style={{marginTop: '20%', alignItems: 'center'}} >
+    <Quotebox quotes={quotes} selected={selected} newQuote={newQuote} />
+    <Rating addGood={addGood} addBad={addBad} good={good} bad={bad}/>
   </div>
     
 )   
