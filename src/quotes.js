@@ -1,35 +1,4 @@
-import React, { useState } from 'react'
-import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-
-
-
-const App = () => {
-  
-  const [selected, setSelected] = useState(0)
-  const randomNumber = () => Math.round(Math.random()*100)
-  
-  
-
-return (
-  <div className='container' style={{margin: '50px 50px'}} >
-      <div className={'card'} >
-      <div className={'card-body'}>
-        <h1 className={'card-title'}>Quote</h1>
-        <p className={'card-text'} >{quotes[selected].quoteText}</p>
-        <p className={'font-italic'}>{quotes[selected].quoteAuthor}</p>
-        <button onClick={() => setSelected(randomNumber())} className={`btn btn-info`}>New quote</button>
-      </div>
-      </div>
-  </div>
-    
-)   
-}
-
-let quotes = [
+const quotes = [
   {
   "quoteText": "Genius is one percent inspiration and ninety-nine percent perspiration.",
   "quoteAuthor": "Thomas Edison"
@@ -407,9 +376,3 @@ let quotes = [
   "quoteAuthor": "Carl Jung"
   }
 ]
-
-
-ReactDOM.render(<App />, 
-  document.getElementById('root')
-)
-
